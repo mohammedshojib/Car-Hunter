@@ -1,0 +1,38 @@
+.hero-text {
+  color: #6c63ff;
+}
+.explore-btn {
+  color: black;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+.explore-btn:hover {
+  color: white;
+  background-color: #6c63ff;
+  border: 1px solid #6c63ff;
+}
+.main {
+  height: 100vh;
+  align-items: center;
+  background-color: #f2f2f9;
+}
+.hero-main {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+.hero h1 {
+  font-size: 50px;
+}
+.hero p {
+  margin-bottom: 50px;
+}
+.hero {
+  width: 50%;
+}
+.hero img {
+  margin-top: 60px;
+  width: 100%;
+}

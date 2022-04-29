@@ -1,0 +1,40 @@
+.header {
+  height: 70px;
+  background-color: rgb(108, 99, 255);
+  align-items: center;
+}
+.container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+}
+.container img {
+  width: 50px;
+}
+.row ul {
+  display: flex;
+}
+.non-active {
+  color: white;
+  padding: 5px 15px;
+  margin-left: 10px;
+}
+.row h6 {
+  color: white;
+}
+
+.row a:hover {
+  color: black;
+}
+#logo {
+  padding: 0;
+  margin-left: 0;
+}
+.active {
+  padding: 5px 15px;
+  margin-left: 10px;
+  color: black;
+}
