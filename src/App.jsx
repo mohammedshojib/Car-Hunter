@@ -4,6 +4,10 @@ import About from "./components/About";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import Myprofile from "./components/Myprofile";
+import Notfound from "./components/Notfound";
+import RequireAuth from "./components/RequireAuth";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -11,8 +15,18 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/myaccount" element={<Myprofile />} />
+        <Route path="/*" element={<Notfound />} />
+        <Route
+          path="/about"
+          element={
+            <RequireAuth>
+              <About />
+            </RequireAuth>
+          }
+        />
       </Routes>
     </div>
   );
