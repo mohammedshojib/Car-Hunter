@@ -12,7 +12,7 @@ import {
   useAuthState,
   useSendPasswordResetEmail,
 } from "react-firebase-hooks/auth";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const provider = new GoogleAuthProvider();
@@ -60,11 +60,7 @@ const Signup = () => {
   if (user) {
     return <Navigate to="/" />;
   } else if (loading) {
-    return (
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    );
+    return <div>Loading</div>;
   } else {
     return (
       <div className="wrapper">
@@ -105,6 +101,7 @@ const Signup = () => {
             Continue With Google
           </button>
         </div>
+        <ToastContainer />
       </div>
     );
   }

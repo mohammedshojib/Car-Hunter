@@ -28,7 +28,8 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        toast("Loged in succsess ");
+        <Navigate to="/" />;
+        toast("Invalid email provided, please provide a valid email");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -61,31 +62,9 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      const url = "http://localhost:5000/login";
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify({
-          email: user.email,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          localStorage.setItem("accesToken", data.token);
-        });
-      return navigate(from);
+      navigate(from);
     }
   }, [user]);
-
-  if (loading) {
-    return (
-      <div class="spinner-border text-center mt-50" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    );
-  }
 
   return (
     <div className="wrapper">

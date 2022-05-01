@@ -9,10 +9,7 @@ const Notfound = () => {
   return (
     <div className="not-found">
       <h4>404 Not Found</h4>
-      <img
-        src="https://cloud.mongodb.com/static/images/sadface.gif"
-        alt="not-found"
-      />
+      <img src={notFound} alt="not-found" />
       <br />
       <a className="btn" onClick={() => navigate("/")}>
         <FaArrowLeft /> Go Back To Home

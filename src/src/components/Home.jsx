@@ -9,11 +9,12 @@ const Home = () => {
       <div className="hero-main">
         <div className="hero">
           <h1>
-            Wellcome To <br /> <span className="hero-text">Car Hunter</span>
+            Wellcome To <br /> <span className="hero-text">Car Viter</span>
           </h1>
           <p>
-            We are car hunter A K A second hand car listing + add our inventory,
-            If you have best quality tesla car then added on our inventory.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+            possimus voluptas repudiandae expedita corporis nam in cum quod
+            necessitatibus praesentium,
           </p>
           <a href="#" className="explore-btn">
             Explore Now <FaArrowRight />

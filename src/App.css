@@ -8,3 +8,37 @@
 a {
   text-decoration: none;
 }
+.car-container {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.car-card img {
+  width: 100%;
+}
+.car-details {
+  display: flex;
+
+  width: 80%;
+  margin: auto;
+}
+.details {
+  width: 50%;
+  margin-top: 50px;
+}
+.car-details img {
+  width: 100%;
+}
+#detaols-area {
+  margin-left: 30px;
+}
+.quantity-input {
+  color: black;
+  align-items: center;
+  border-radius: 7px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  font-weight: 500;
+}

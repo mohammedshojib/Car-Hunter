@@ -50,52 +50,20 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? "active" : "non-active"
                 }
-                to="/allcars"
+                to="/about"
               >
-                Allcars
+                About
               </NavLink>
             </li>
             <li>
-              {currentUser?.email ? (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active" : "non-active"
-                  }
-                  to="/upload-car"
-                >
-                  Upload Car
-                </NavLink>
-              ) : (
-                ""
-              )}
-            </li>
-            <li>
-              {currentUser?.email ? (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active" : "non-active"
-                  }
-                  to="/my-items"
-                >
-                  My Items
-                </NavLink>
-              ) : (
-                ""
-              )}
-            </li>
-            <li>
-              {currentUser?.email ? (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active" : "non-active"
-                  }
-                  to="/manage-car"
-                >
-                  Manage Car
-                </NavLink>
-              ) : (
-                ""
-              )}
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active" : "non-active"
+                }
+                to="/addcar"
+              >
+                Add Car
+              </NavLink>
             </li>
           </ul>
         </div>
