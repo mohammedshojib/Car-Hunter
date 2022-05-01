@@ -35,16 +35,16 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/myaccount" element={<Myprofile />} />
-          <Route path="/car/:id" element={<CarDetails />} />
-          <Route path="/*" element={<Notfound />} />
           <Route
-            path="/Allcars"
+            path="/car/:id"
             element={
               <RequireAuth>
-                <Allcars />
+                <CarDetails />
               </RequireAuth>
             }
           />
+          <Route path="/*" element={<Notfound />} />
+          <Route path="/Allcars" element={<Allcars />} />
           <Route
             path="/my-items"
             element={
