@@ -50,7 +50,7 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? "active" : "non-active"
                 }
-                to="/allcars"
+                to="/all-cars"
               >
                 Allcars
               </NavLink>

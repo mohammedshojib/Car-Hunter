@@ -44,7 +44,7 @@ function App() {
             }
           />
           <Route path="/*" element={<Notfound />} />
-          <Route path="/Allcars" element={<Allcars />} />
+          <Route path="/All-cars" element={<Allcars />} />
           <Route
             path="/my-items"
             element={

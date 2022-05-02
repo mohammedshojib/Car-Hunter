@@ -26,17 +26,13 @@ const ManageCar = () => {
       <table className="table">
         <thead>
           <tr>
-            <th>#</th>
             <th>Cars Name</th>
             <th>Price</th>
             <th>Quantity</th>
           </tr>
         </thead>
-      </table>
-
-      {cars.map((car) => (
-        <table key={car._id} className="table">
-          <tbody>
+        {cars.map((car) => (
+          <tbody key={car._id}>
             <tr>
               <td>{car.name}</td>
               <td>$ {car.price}</td>
@@ -46,8 +42,8 @@ const ManageCar = () => {
               </button>
             </tr>
           </tbody>
-        </table>
-      ))}
+        ))}
+      </table>
     </div>
   );
 };

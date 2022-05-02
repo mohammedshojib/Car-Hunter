@@ -11,14 +11,13 @@ const UploadCar = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const addCar = {
-      email: user.email,
       name: event.target.name.value,
       price: event.target.price.value,
       description: event.target.description.value,
       quantity: event.target.quantity.value,
       img: event.target.img.value,
     };
-
+    //<===== UPLOAD CAR ====>
     const url = `http://localhost:5000/addcar`;
     fetch(url, {
       method: "POST",
@@ -32,7 +31,32 @@ const UploadCar = () => {
         console.log(data);
         toast.success("car added succsessfully");
       });
+
+    //<===== MY CARS ====>
+    const myCars = {
+      email: user.email,
+      name: event.target.name.value,
+      price: event.target.price.value,
+      description: event.target.description.value,
+      quantity: event.target.quantity.value,
+      img: event.target.img.value,
+    };
+    const myCarsurl = `http://localhost:5000/mycars`;
+    fetch(myCarsurl, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(myCars),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+    event.target.reset();
   };
+
+  //<===== error ====>
   return (
     <div className="wrapper">
       <div className="text-center mt-4 name"> Add Cars </div>

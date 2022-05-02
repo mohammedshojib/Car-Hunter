@@ -13,6 +13,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const provider = new GoogleAuthProvider();
 
@@ -23,9 +24,9 @@ const Login = () => {
   const [user, loading, errorHook] = useAuthState(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         toast("Loged in succsess ");
@@ -34,6 +35,10 @@ const Login = () => {
         const errorMessage = error.message;
         setError(errorMessage);
       });
+    // const { data } = await axios.post("http://localhost:5000/login", { email });
+    // localStorage.setItem("accesToken", data);
+    // navigate(from);
+    // console.log(data);
   };
 
   const handleSignin = () => {
@@ -61,21 +66,15 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      const url = "http://localhost:5000/login";
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify({
-          email: user.email,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          localStorage.setItem("accesToken", data.token);
+      const userData = async () => {
+        const { data } = await axios.post("http://localhost:5000/login", {
+          email,
         });
-      return navigate(from);
+        localStorage.setItem("accesToken", data);
+        navigate(from);
+        console.log(data);
+      };
+      userData();
     }
   }, [user]);
 
