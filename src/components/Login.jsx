@@ -35,10 +35,6 @@ const Login = () => {
         const errorMessage = error.message;
         setError(errorMessage);
       });
-    // const { data } = await axios.post("http://localhost:5000/login", { email });
-    // localStorage.setItem("accesToken", data);
-    // navigate(from);
-    // console.log(data);
   };
 
   const handleSignin = () => {
@@ -80,8 +76,11 @@ const Login = () => {
 
   if (loading) {
     return (
-      <div class="spinner-border text-center mt-50" role="status">
-        <span class="visually-hidden">Loading...</span>
+      <div className="text-center mt-5">
+        {" "}
+        <div class="spinner-border  " role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
     );
   }

@@ -6,8 +6,8 @@ import "../styles/Home.css";
 const Home = () => {
   return (
     <div className="main">
-      <div className="hero-main">
-        <div className="hero">
+      <div className="hero">
+        <div className="col ">
           <h1>
             Wellcome To <br /> <span className="hero-text">Car Hunter</span>
           </h1>
@@ -19,7 +19,7 @@ const Home = () => {
             Explore Now <FaArrowRight />
           </a>
         </div>
-        <div className="hero">
+        <div className="col ">
           <img src={carImg} alt="" />
         </div>
       </div>

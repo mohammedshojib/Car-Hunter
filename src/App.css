@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  max-width: 100%;
   font-family: "Ubuntu", sans-serif;
   list-style: none;
   text-decoration: none;
@@ -20,7 +21,6 @@ a {
 }
 .car-details {
   display: flex;
-
   width: 80%;
   margin: auto;
 }
@@ -41,4 +41,26 @@ a {
   padding: 10px 20px;
   border: 1px solid black;
   font-weight: 500;
+}
+.md-w-100 {
+  width: 80%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .car-container {
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5px;
+  }
+  .car-details {
+    display: block;
+    width: 95%;
+    margin: auto;
+  }
+  .md-w-100 {
+    width: 100%;
+  }
 }

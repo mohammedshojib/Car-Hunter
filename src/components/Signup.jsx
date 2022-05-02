@@ -4,9 +4,9 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Login.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../firebase.init";
 import {
   useAuthState,
@@ -14,6 +14,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const provider = new GoogleAuthProvider();
 
@@ -56,10 +57,24 @@ const Signup = () => {
       toast("please enter your email address");
     }
   };
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
-  if (user) {
-    return <Navigate to="/" />;
-  } else if (loading) {
+  useEffect(() => {
+    if (user) {
+      const userData = async () => {
+        const { data } = await axios.post("http://localhost:5000/login", {
+          email,
+        });
+        localStorage.setItem("accesToken", data);
+        navigate(from);
+        console.log(data);
+      };
+      userData();
+    }
+  }, [user]);
+  if (loading) {
     return (
       <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>

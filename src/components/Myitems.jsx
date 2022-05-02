@@ -44,7 +44,7 @@ const Myitems = () => {
   };
 
   return (
-    <div className="w-50 mx-auto">
+    <div className="mx-auto md-w-100">
       <table className="table">
         <thead>
           <tr>

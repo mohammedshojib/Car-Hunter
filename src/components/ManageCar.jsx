@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { carsContext } from "../App";
 
 const ManageCar = () => {
   const [cars, setCars] = useContext(carsContext);
+
+  const navigate = useNavigate();
 
   const deleteCar = (id) => {
     const proceed = window.confirm("Are you sure?");
@@ -22,7 +25,7 @@ const ManageCar = () => {
   };
 
   return (
-    <div className="w-50 mx-auto">
+    <div className="md-w-100">
       <table className="table">
         <thead>
           <tr>
@@ -44,6 +47,17 @@ const ManageCar = () => {
           </tbody>
         ))}
       </table>
+
+      {cars.length === 0 ? (
+        <div className="text-center mt 5">
+          <h1>No data avaiable</h1>
+          <button onClick={() => navigate("/upload-car")} className="btn">
+            Add Car
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
