@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Allcars from "./components/Allcars";
 import CarDetails from "./components/CarDetails";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -71,6 +72,7 @@ function App() {
           />
         </Routes>
       </div>
+      <Footer />
       <ToastContainer />
     </carsContext.Provider>
   );
