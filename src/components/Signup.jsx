@@ -64,9 +64,12 @@ const Signup = () => {
   useEffect(() => {
     if (user) {
       const userData = async () => {
-        const { data } = await axios.post("http://localhost:5000/login", {
-          email,
-        });
+        const { data } = await axios.post(
+          "https://fast-fjord-98215.herokuapp.com/login",
+          {
+            email,
+          }
+        );
         localStorage.setItem("accesToken", data);
         navigate(from);
         console.log(data);

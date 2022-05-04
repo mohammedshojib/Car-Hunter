@@ -18,7 +18,7 @@ const UploadCar = () => {
       img: event.target.img.value,
     };
     //<===== UPLOAD CAR ====>
-    const url = `http://localhost:5000/addcar`;
+    const url = `https://fast-fjord-98215.herokuapp.com/addcar`;
     fetch(url, {
       method: "POST",
       headers: {

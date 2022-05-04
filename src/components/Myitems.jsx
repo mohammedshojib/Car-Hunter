@@ -29,7 +29,7 @@ const Myitems = () => {
   const deleteMyCar = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/my-items/${id}`;
+      const url = `https://fast-fjord-98215.herokuapp.com/my-items/${id}`;
       fetch(url, {
         method: "DELETE",
       })
