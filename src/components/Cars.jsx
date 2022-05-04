@@ -9,6 +9,10 @@ const Cars = ({ car }) => {
       <img src={car.img} alt="" />
       <h6>{car.name}</h6>
       <p>{car.description}</p>
+      <p>$ {car.price}</p>
+      <p>
+        instock: <b>{car.quantity}</b>
+      </p>
       <a className="btn" onClick={() => navigate(`/car/${car._id}`)}>
         Read More
       </a>

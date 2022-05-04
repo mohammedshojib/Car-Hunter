@@ -12,6 +12,7 @@ import ManageCar from "./components/ManageCar";
 import Myitems from "./components/Myitems";
 import Myprofile from "./components/Myprofile";
 import Notfound from "./components/Notfound";
+import QandA from "./components/QandA";
 import RequireAuth from "./components/RequireAuth";
 import Signup from "./components/Signup";
 import UploadCar from "./components/UploadCar";
@@ -36,6 +37,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/myaccount" element={<Myprofile />} />
+          <Route path="/q&a" element={<QandA />} />
           <Route
             path="/car/:id"
             element={

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../styles/Header.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase.init";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -19,87 +20,66 @@ const Header = () => {
     return () => unsubscribe;
   }, []);
   return (
-    <div className="header">
-      <div className="container">
-        <div className="row">
+    <>
+      <div className="header">
+        <Link to="/">
+          <img src={logo} />
+        </Link>
+        <div className="h-link">
           <NavLink
-            id="logo"
             className={({ isActive }) => (isActive ? "active" : "non-active")}
             to="/"
           >
-            <img
-              src="https://logovectorseek.com/wp-content/uploads/2020/02/demos-logo-vector.png"
-              alt=""
-            />
+            Home
           </NavLink>
-        </div>
-        <div className="row">
-          <ul>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "active" : "non-active"
-                }
-                to="/"
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "active" : "non-active"
-                }
-                to="/all-cars"
-              >
-                Allcars
-              </NavLink>
-            </li>
-            <li>
-              {currentUser?.email ? (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active" : "non-active"
-                  }
-                  to="/upload-car"
-                >
-                  Upload Car
-                </NavLink>
-              ) : (
-                ""
-              )}
-            </li>
-            <li>
-              {currentUser?.email ? (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active" : "non-active"
-                  }
-                  to="/my-items"
-                >
-                  My Items
-                </NavLink>
-              ) : (
-                ""
-              )}
-            </li>
-            <li>
-              {currentUser?.email ? (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active" : "non-active"
-                  }
-                  to="/manage-car"
-                >
-                  Manage Car
-                </NavLink>
-              ) : (
-                ""
-              )}
-            </li>
-          </ul>
-        </div>
-        <div className="row">
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "non-active")}
+            to="/all-cars"
+          >
+            Allcars
+          </NavLink>
+          {currentUser?.email ? (
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "non-active")}
+              to="/upload-car"
+            >
+              Upload Car
+            </NavLink>
+          ) : (
+            ""
+          )}
+          {currentUser?.email ? (
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "non-active")}
+              to="/my-items"
+            >
+              MyItems
+            </NavLink>
+          ) : (
+            ""
+          )}
+          {currentUser?.email ? (
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "non-active")}
+              to="/manage-car"
+            >
+              Manage Car
+            </NavLink>
+          ) : (
+            ""
+          )}
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "non-active")}
+            to="/q&a"
+          >
+            Q&A
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "non-active")}
+            to="/about"
+          >
+            AboutMe
+          </NavLink>
           {currentUser?.email ? (
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "non-active")}
@@ -117,7 +97,7 @@ const Header = () => {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

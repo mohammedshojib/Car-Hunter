@@ -5,7 +5,7 @@ import "../styles/HeroBanner.css";
 const HeroBanner = () => {
   const [cars, setCars] = useContext(carsContext);
   return (
-    <section className="hero">
+    <section className="hero mt-5">
       <div className="hero-area">
         <div id="hero-tab" className="hero-content">
           <h1>
