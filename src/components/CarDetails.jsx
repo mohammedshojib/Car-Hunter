@@ -39,7 +39,7 @@ const CarDetails = () => {
     const quantity =
       parseFloat(event.target.quantity.value) + parseFloat(car.quantity);
 
-    const url = `http://localhost:5000/car/${id}`;
+    const url = `https://fast-fjord-98215.herokuapp.com/car/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -59,7 +59,7 @@ const CarDetails = () => {
   const deliveredCar = () => {
     const quantity = car.quantity - 1;
 
-    const url = `http://localhost:5000/car/${id}`;
+    const url = `https://fast-fjord-98215.herokuapp.com/car/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

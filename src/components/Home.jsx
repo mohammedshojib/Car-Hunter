@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { carsContext } from "../App";
 import carImg from "../assets/car.svg";
 import "../styles/Home.css";
@@ -9,6 +10,7 @@ import HeroBanner from "./HeroBanner";
 const Home = () => {
   const [cars, setCars] = useContext(carsContext);
   const newCars = cars.slice(0, 6);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -40,6 +42,11 @@ const Home = () => {
         {newCars.map((car) => (
           <Cars car={car} key={car._id} />
         ))}
+      </div>
+      <div className="text-center mt-5">
+        <button onClick={() => navigate("/manage-car")} className="btn w-25">
+          Manage All Cars
+        </button>
       </div>
       <HeroBanner />
       <section class="hero">

@@ -41,7 +41,7 @@ const UploadCar = () => {
       quantity: event.target.quantity.value,
       img: event.target.img.value,
     };
-    const myCarsurl = `http://localhost:5000/mycars`;
+    const myCarsurl = `https://fast-fjord-98215.herokuapp.com/mycars`;
     fetch(myCarsurl, {
       method: "POST",
       headers: {
