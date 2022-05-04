@@ -4,11 +4,11 @@ import { carsContext } from "../App";
 import carImg from "../assets/car.svg";
 import "../styles/Home.css";
 import Cars from "./Cars";
+import HeroBanner from "./HeroBanner";
 
 const Home = () => {
   const [cars, setCars] = useContext(carsContext);
   const newCars = cars.slice(0, 6);
-  console.log(newCars);
 
   return (
     <>
@@ -37,32 +37,7 @@ const Home = () => {
           <Cars car={car} key={car._id} />
         ))}
       </div>
-      <div class="d-flex m-auto">
-        <div class="container bg-dark d-flex justify-content-center text-center m-auto row rounded mt-5">
-          <div class="col-lg-2 bg-danger rounded text-white m-4">
-            <h2 class="mt-3">{cars.length}</h2>
-            <p>Total Cars</p>
-          </div>
-          <div class="col-lg-2 bg-primary rounded text-white m-4">
-            <h2 class="mt-3">500+</h2>
-            <p>Cars Delivered</p>
-          </div>
-          <div
-            class="col-lg-2 rounded text-white m-4"
-            style={{ backgroundColor: "#6d51e7" }}
-          >
-            <h2 class="mt-3">100+</h2>
-            <p>Total User</p>
-          </div>
-          <div
-            class="col-lg-2 rounded text-white m-4"
-            style={{ backgroundColor: "#ff9900" }}
-          >
-            <h2 class="mt-3">100+</h2>
-            <p>Special Items</p>
-          </div>
-        </div>
-      </div>
+      <HeroBanner />
     </>
   );
 };
