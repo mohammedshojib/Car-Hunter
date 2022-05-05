@@ -58,7 +58,7 @@ const CarDetails = () => {
 
   const deliveredCar = () => {
     const quantity = car.quantity - 1;
-    if (quantity <= 0) {
+    if (quantity === -1) {
       toast.error("Stock Out plase add more instock");
     } else {
       const url = `https://fast-fjord-98215.herokuapp.com/car/${id}`;
