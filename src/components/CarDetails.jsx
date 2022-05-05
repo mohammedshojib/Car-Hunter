@@ -58,20 +58,23 @@ const CarDetails = () => {
 
   const deliveredCar = () => {
     const quantity = car.quantity - 1;
-
-    const url = `https://fast-fjord-98215.herokuapp.com/car/${id}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ quantity }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        toast.success("Delivered Car succsessfully");
-      });
+    if (quantity <= 0) {
+      toast.error("Stock Out plase add more instock");
+    } else {
+      const url = `https://fast-fjord-98215.herokuapp.com/car/${id}`;
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ quantity }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("Delivered Car succsessfully");
+        });
+    }
   };
 
   return (
