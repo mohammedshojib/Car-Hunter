@@ -9,12 +9,22 @@ import HeroBanner from "./HeroBanner";
 
 const Home = () => {
   const [cars, setCars] = useContext(carsContext);
+
   const newCars = cars.slice(0, 6);
   const navigate = useNavigate();
 
   return (
     <>
       <div className="main mb-5">
+        {cars.length ? (
+          cars.length === ""
+        ) : (
+          <div className="text-center">
+            <div class="spinner-border  " role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        )}
         <div className="hero">
           <div className="col ">
             <h1>

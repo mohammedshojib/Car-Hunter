@@ -10,6 +10,15 @@ const Allcars = () => {
   const [cars, setCars] = useContext(carsContext);
   return (
     <div className="car-container">
+      {cars.length ? (
+        cars.length === ""
+      ) : (
+        <div className="text-center">
+          <div class="spinner-border  " role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
       {cars.map((car) => (
         <Cars car={car} key={car._id} />
       ))}
