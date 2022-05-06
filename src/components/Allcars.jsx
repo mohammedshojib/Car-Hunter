@@ -11,7 +11,7 @@ const Allcars = () => {
   return (
     <div className="car-container">
       {cars.length ? (
-        cars.length === ""
+        ""
       ) : (
         <div className="text-center">
           <div class="spinner-border  " role="status">

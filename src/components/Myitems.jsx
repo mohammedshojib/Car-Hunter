@@ -70,7 +70,7 @@ const Myitems = () => {
         ))}
       </table>
       {allCars.length ? (
-        allCars.length === ""
+        ""
       ) : (
         <div className="text-center">
           <div class="spinner-border  " role="status">

@@ -17,7 +17,7 @@ const Home = () => {
     <>
       <div className="main mb-5">
         {cars.length ? (
-          cars.length === ""
+          ""
         ) : (
           <div className="text-center">
             <div class="spinner-border  " role="status">
