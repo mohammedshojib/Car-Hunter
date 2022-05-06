@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { carsContext } from "../App";
 import { auth } from "../firebase.init";
 import { useNavigate } from "react-router-dom";
 
 const Myitems = () => {
   const navigate = useNavigate();
+  const [spinner, setSpinner] = useState(true);
   const [allCars, setAllCars] = useState([]);
   const [user] = useAuthState(auth);
 
@@ -15,13 +15,17 @@ const Myitems = () => {
 
     const myItems = async () => {
       const url = `https://fast-fjord-98215.herokuapp.com/my-items?email=${email}`;
-      const { data } = await axios.get(url, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accesToken")}`,
-        },
-      });
-
+      const { data } = await axios
+        .get(url, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accesToken")}`,
+          },
+        })
+        .catch(function (error) {
+          setSpinner(false);
+        });
       setAllCars(data);
+      setSpinner(false);
     };
     myItems();
   }, [user]);
@@ -69,9 +73,7 @@ const Myitems = () => {
           </tbody>
         ))}
       </table>
-      {allCars.length ? (
-        ""
-      ) : (
+      {spinner && (
         <div className="text-center">
           <div class="spinner-border  " role="status">
             <span class="visually-hidden">Loading...</span>
