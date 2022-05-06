@@ -69,6 +69,15 @@ const Myitems = () => {
           </tbody>
         ))}
       </table>
+      {allCars.length ? (
+        allCars.length === ""
+      ) : (
+        <div className="text-center">
+          <div class="spinner-border  " role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
       {allCars.length === 0 ? (
         <div className="text-center mt 5">
           <h1>No data avaiable</h1>
